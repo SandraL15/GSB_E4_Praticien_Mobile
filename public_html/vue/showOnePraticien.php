@@ -1,6 +1,6 @@
 <?php
 	echo("<form method='post' rel='external' action='index.php' onsubmit='return checkForm();'>");
-	echo "<a rel=\"external\" href=\"javascript:deleteEntry($num)\">Supprimer cette saisie</a>";
+	echo "<a rel=\"external\" href=\"javascript:deleteEntry($num)\">Supprimer ce praticien</a>";
 	echo "<input type='hidden' name='action' value='update'/>";
 	echo "<input type='hidden' name='num' value='".$contact->getNum()."'/>";
 	echo "<fieldset>";
@@ -36,6 +36,6 @@
 	echo "</div>";
         
 	echo "<fieldset>";
-	echo "<button type=\"submit\" value=\"Save\">Sauvegarder opportunité</button>";	
+	echo "<button type=\"submit\" value=\"Save\">Modifier le praticien</button>";	
 	echo("</form>");
 ?>

@@ -7,8 +7,9 @@ class Praticien{
         private $cp;
         private $ville;
         private $coefnotoriete;
-	
-	function __construct($num,$nom,$prenom,$adresse, $cp,$ville, $coefnotoriete){
+        private $type;
+                
+	function __construct($num,$nom,$prenom,$adresse, $cp,$ville, $coefnotoriete, $type){
 		$this->num = $num;
 		$this->nom = $nom;
 		$this->prenom = $prenom;
@@ -16,7 +17,12 @@ class Praticien{
                 $this->cp = $cp;
                 $this->ville = $ville;
                 $this->coefnotoriete = $coefnotoriete;
+                $this->type = $type;
 	}
+        
+        public function getType(){
+            return $this->type;
+        }
 	
 	public function getNum(){
 		return $this->num;

@@ -4,10 +4,11 @@ require('modele/dbParametres.php');
 require('modele/Praticien.php');
 require('modele/Passerelle.php');
 require('vue/header.php');
+require ('modele/TypePraticien.php');
 ?>
 <div data-role="page">
     <div data-role="header">
-        <h1>Répertoire des Praticiens</h1>
+        <h1>Répertoire des praticiens</h1>
     </div>
     <div data-role="content">
     <?php 
@@ -19,18 +20,23 @@ require('vue/header.php');
             $action = "";            
     }
     switch ($action) {
-            case 'addnew' 	:   require('vue/addPraticien.php');
+            case 'addnew' 	:   $type = Passerelle::getAllTypePraticien();
+                                    require('vue/addPraticien.php');
                                     break;
-            case 'insert' 	:   $nom = $_REQUEST['nom'];
+                                
+            case 'insert' 	:   $num = $_REQUEST['num'];
+                                    $nom = $_REQUEST['nom'];
                                     $prenom = $_REQUEST['prenom'];
                                     $adresse = $_REQUEST['adresse'];
                                     $cp = $_REQUEST['cp'];
                                     $ville = $_REQUEST['ville'];
                                     $coefnotoriete = $_REQUEST['coefnotoriete'];
-                                    Passerelle::addPraticien($nom, $prenom, $adresse, $cp, $ville, $coefnotoriete); 
+                                    $type = $_REQUEST['type'];
+                                    Passerelle::addPraticien($num, $nom, $prenom, $adresse, $cp, $ville, $coefnotoriete,$type); 
                                     $contacts = Passerelle::getPraticien();
                                     require('vue/showPraticiens.php');
                                     break;
+                                
             case 'details' 	:   $num = $_REQUEST['num'];
                                     $contact = Passerelle::getOnePraticien($num);
                                     require('vue/showOnePraticien.php');

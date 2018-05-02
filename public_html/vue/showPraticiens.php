@@ -11,8 +11,11 @@
                         echo('Code postal :&nbsp;"'.$info->getCp().'"<br/>');
                         echo('Ville :&nbsp;"'.$info->getVille().'"<br/>');
                         echo('Coef Notoriete :&nbsp;"'.$info->getCoefnotoriete().'"<br/>');
+                        $t = Passerelle::getOneTypeByCode($info->getType());
+                        echo('Type: '.$t->getLibelle().'<br/>');
                     echo('</a></li>');
                    echo('</ul>');
                 echo('</div>');
 	}
 ?>	
+<h1>DU GLAND</h1>
