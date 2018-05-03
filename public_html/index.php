@@ -48,8 +48,11 @@ require ('modele/TypePraticien.php');
                                     $cp = $_REQUEST['cp'];
                                     $ville = $_REQUEST['ville'];
                                     $coefnotoriete = $_REQUEST['coefnotoriete'];
-                                    Passerelle::updateOnePraticien($num, $nom, $prenom, $adresse, $cp, $ville, $coefnotoriete);
+                                    $type = $_REQUEST['type'];
+                                    Passerelle::updateOnePraticien($num, $nom, $prenom, $adresse, $cp, $ville, $coefnotoriete, $type);
+                                    
                                     $contacts = Passerelle::getPraticien();
+                                    
                                     require('vue/showPraticiens.php');
                                     break;
             case 'delete'	:   $num = $_REQUEST['num'];

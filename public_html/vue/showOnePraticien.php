@@ -35,6 +35,22 @@
 	echo "<input type='text' name='coefnotoriete' maxlength='200' id='coefnotoriete' value='".$contact->getCoefnotoriete()."' />";
 	echo "</div>";
         
+//        echo "<div data-role='fieldcontain'>";
+//	echo "<label for='type'>Code du type</label>";
+//	echo "<input type='text' name='type' maxlength='200' id='type' value='".$contact->getTypeP()."' />";
+//	echo "</div>";
+        
+          ?>
+          <div class='ui-field-contain'>
+                    <label for="categorie">Categories</label>
+                    <select name="type"  data-iconpos="left">
+                        <?php foreach($type as $tp){
+                                 echo "<option value='".$tp->getCode()."'>".$tp->getLibelle()."</option>";
+                            }?>
+                    </select>
+            </div>
+        <?php
+        
 	echo "<fieldset>";
 	echo "<button type=\"submit\" value=\"Save\">Modifier le praticien</button>";	
 	echo("</form>");

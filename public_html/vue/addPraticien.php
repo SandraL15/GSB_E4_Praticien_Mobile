@@ -6,7 +6,7 @@
         
         echo("<div data-role='fieldcontain'>");
 	echo("<label for='num'>Numero</label>");
-	echo("<input type='text' placeholder='Saisissez deux chiffres' name='num' maxlength='100' id='num' value='' />");
+	echo("<input type='text' placeholder='Saisissez trois chiffres' name='num' maxlength='100' id='num' value='' />");
 	echo("</div>");
         
 	echo("<div data-role='fieldcontain'>");

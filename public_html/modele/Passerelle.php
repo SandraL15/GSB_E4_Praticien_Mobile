@@ -34,7 +34,7 @@ class Passerelle{
         static function getOneTypeByCode($code){
             $type = null;
                     $sql ="select * from type_praticien where `TYP_CODE` = ".$code;
-                    $result = Passerelle::$mysql_link->query($sql);///*****************************
+                    $result = Passerelle::$mysql_link->query($sql);
                     if ($result){
                             $row = $result->fetch();
                             $code = $row['TYP_CODE'];	
@@ -43,7 +43,6 @@ class Passerelle{
                             $type = new TypePraticien($code, $libelle, $lieu);
 
                     }
-                                   //var_dump($sql); echo $sql; die;                        
             return $type;
         }
         
@@ -69,6 +68,7 @@ class Passerelle{
             $praticien = null;
             if ($num != -1) {
                     $sql ="select * from praticien where PRA_NUM=".$num;
+//                    $sql ="select * from praticien p, type_praticien t where p.TYP_CODE = t.TYP_CODE and PRA_NUM=".$num." and TYP_CODE=".$type."";
                     $result = Passerelle::$mysql_link->query($sql);
                     if ($result){
                             $row = $result->fetch();
@@ -84,10 +84,10 @@ class Passerelle{
             }
             return $praticien;
         }
-        static  function updateOnePraticien($num,$nom, $prenom, $adresse, $cp, $ville,$coefnotoriete ){
+        static  function updateOnePraticien($num,$nom, $prenom, $adresse, $cp, $ville,$coefnotoriete,$type ){
            $praticien = null;
            if($num != -1){
-               $sql = "UPDATE `praticien` SET `PRA_NOM`='".$nom."',`PRA_PRENOM`='".$prenom."',`PRA_ADRESSE`='".$adresse."',`PRA_CP`='".$cp."', `PRA_VILLE`='".$ville."', `PRA_COEFNOTORIETE`='".$coefnotoriete."' WHERE PRA_NUM=".$num."";
+               $sql = "UPDATE `praticien` SET `PRA_NOM`='".$nom."',`PRA_PRENOM`='".$prenom."',`PRA_ADRESSE`='".$adresse."',`PRA_CP`='".$cp."', `PRA_VILLE`='".$ville."', `PRA_COEFNOTORIETE`='".$coefnotoriete."',  `TYP_CODE`='".$type."'  WHERE PRA_NUM=".$num."";
                $result = Passerelle::$mysql_link->query($sql);
            }
        }
