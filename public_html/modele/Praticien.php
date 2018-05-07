@@ -48,8 +48,5 @@ class Praticien{
          public function getCoefnotoriete(){
 		return $this->coefnotoriete;
 	}
-         public function getTypeP(){
-		return $this->type;
-	}
 }
 ?>

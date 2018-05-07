@@ -9,7 +9,7 @@
     <body>
         <div id="container">
             <form action="index.php" method="POST">
-                <h1>Connexion</h1>
+                 <h1 style="text-align: center;"> Connexion </h1>
                 <label>Nom d'utilisateur</label>
                 <input type="hidden" name='action' value='verifConnexion'>
                 <input type="text" placeholder="nom d'utilisateur" name="login">

@@ -97,5 +97,56 @@ class Passerelle{
                $result = Passerelle::$mysql_link->query($sql);
            }
        }
+       
+       	static function addSpecialite($code,$libelle){
+            $sql = "INSERT INTO `specialite` (`SPE_CODE`, `SPE_LIBELLE`) VALUES ('".$code."', '".$libelle."');";
+            $result = Passerelle::$mysql_link->exec($sql);           
+            if ($result == 1){
+                    return "SUCCESS";
+            }
+            else{
+                    return "ERREUR";
+            }
+        }
+          static function getSpecialite(){
+            $specialite = array();
+            $sql = "select * from specialite";
+            $result = Passerelle::$mysql_link->query($sql);
+            while ($row = $result->fetch()) {
+                            $code = $row['SPE_CODE'];
+                            $libelle = $row['SPE_LIBELLE'];
+                            $specialite = new Specialite($code, $libelle);
+                            $specialites[] = $specialite;
+            }		
+            return $specialites;
+        }
+        static function getOneSpecialite($code){
+            $specialite = null;
+            if ($code != -1) {
+                    $sql ="select * from specialite where SPE_CODE=".$code;
+                    $result = Passerelle::$mysql_link->query($sql);
+                    if ($result){
+                            $row = $result->fetch();
+                            $code = $row['SPE_CODE'];
+                            $libelle = $row['SPE_LIBELLE'];
+                            $specialite = new Specialite($code, $libelle);			
+                    }
+            }
+            return $specialite;
+        }
+ 
+        static  function updateOneSpecialite($code, $libelle){
+           $specialite = null;
+           if($code != -1){
+               $sql = "UPDATE `specialite` SET `SPE_CODE`='".$code."',`SPE_LIBELLE`='".$libelle."' WHERE SPE_CODE=".$code."";
+               $result = Passerelle::$mysql_link->query($sql);
+           }
+       }
+       static  function delSpecialite($code){
+           if($code != -1){
+               $sql ="DELETE FROM `specialite` WHERE `SPE_CODE`=".$code."";
+               $result = Passerelle::$mysql_link->query($sql);
+           }
+       }
 }
 ?>

@@ -11,7 +11,7 @@
                         echo('Code postal :&nbsp;"'.$info->getCp().'"<br/>');
                         echo('Ville :&nbsp;"'.$info->getVille().'"<br/>');
                         echo('Coef Notoriete :&nbsp;"'.$info->getCoefnotoriete().'"<br/>');
-                        echo('Code du type :&nbsp;"'.$info->getTypeP().'"<br/>');
+                        echo('Code du type :&nbsp;"'.$info->getType().'"<br/>');
 
                         //$t = Passerelle::getOneTypeByCode($info->getType());
                        // echo('Type: '.$t->getLibelle().'<br/>');
