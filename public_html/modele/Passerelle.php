@@ -68,7 +68,6 @@ class Passerelle{
             $praticien = null;
             if ($num != -1) {
                     $sql ="select * from praticien where PRA_NUM=".$num;
-//                    $sql ="select * from praticien p, type_praticien t where p.TYP_CODE = t.TYP_CODE and PRA_NUM=".$num." and TYP_CODE=".$type."";
                     $result = Passerelle::$mysql_link->query($sql);
                     if ($result){
                             $row = $result->fetch();
